@@ -13,16 +13,22 @@ module.exports = function(grunt) {
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
 
+    var tiObject = {
+        'build' : {
+            options : {
+                "params" : [1, 2, 3],
+                "log-level" : "info"
+            }
+        },
+        create : {}
+    };
+    //add some defaults.  Remove these from the array as you implement them correctly.
+    ['analyze', 'analyze-options', 'analyze-plugins', 'clean', 'config', 'help', 'info', 'login', 'logout', 'module', 'plugin', 'project', 'sdk', 'setup', 'status'].forEach(function(option) {
+        tiObject[option] = {};
+    });
+
     grunt.config.merge({
-        'ti' : {
-            'build' : {
-                options : {
-                    "params" : [1, 2, 3],
-                    "log-level" : "info"
-                }
-            },
-            create : {}
-        }
+        ti : tiObject
     });
 
     grunt.registerMultiTask('ti', 'titanium commands', function(args) {
@@ -33,10 +39,7 @@ module.exports = function(grunt) {
             done = this.async(),
             cwd = process.cwd();
 
-        grunt.log.ok(JSON.stringify(this.target));
-        grunt.log.ok(JSON.stringify(this.data));
-        /*
-         task = spawn('appc', ['ti'], {
+         task = spawn('appc', ['ti', this.target], {
          'cwd' : cwd
          });
 
@@ -51,8 +54,6 @@ module.exports = function(grunt) {
          task.stdout.on('close', function(code) {
          done(true);
          });
-
-         */
 
     });
 };
