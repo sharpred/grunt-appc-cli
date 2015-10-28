@@ -37,13 +37,14 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-      "gruntplugin",
-      "titanium",
-      "alloy",
-      "appcelerator"
-    ],
+    "gruntplugin",
+    "titanium",
+    "alloy",
+    "appcelerator"
+  ],
   "dependencies": {
     "async": "~1.5.0",
-    "appcelerator": "~4.2.1"
+    "appcelerator": "~4.2.1",
+    "lodash": "~3.10.1"
   }
 }
