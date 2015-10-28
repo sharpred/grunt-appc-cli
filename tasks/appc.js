@@ -10,8 +10,6 @@
 
 module.exports = function(grunt) {
 
-    // Please see the Grunt documentation for more information regarding task
-    // creation: http://gruntjs.com/creating-tasks
     var appcObjects = {};
     ['options','access','config','generate','info','help','install','login','logout','new','owner','org','platform','publish','run','search','setup','switch','ti','unpublish','user','whoami'].forEach(function(option){
         appcObjects[option]={};

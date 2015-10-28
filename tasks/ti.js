@@ -27,33 +27,45 @@ module.exports = function(grunt) {
         tiObject[option] = {};
     });
 
+    //flesh out with some proper defaults
+    //TODO
+
     grunt.config.merge({
         ti : tiObject
     });
 
     grunt.registerMultiTask('ti', 'titanium commands', function(args) {
         // Merge task-specific and/or target-specific options with these defaults.
+
         var options = this.options({}),
             spawn = require('child_process').spawn,
             task,
             done = this.async(),
             cwd = process.cwd();
 
-         task = spawn('appc', ['ti', this.target], {
-         'cwd' : cwd
-         });
+        switch(this.target) {
+            //deliberate fall through
+            case 'info':
+            case 'sdk':
+                task = spawn('appc', ['ti', this.target], {
+                    'cwd' : cwd
+                });
 
-         task.stdout.on('data', function(data) {
-         grunt.log.ok(data);
-         });
+                task.stdout.on('data', function(data) {
+                    grunt.log.ok(data);
+                });
 
-         task.stderr.on('error', function(data) {
-         grunt.log.error(data);
-         });
+                task.stderr.on('error', function(data) {
+                    grunt.log.error(data);
+                });
 
-         task.stdout.on('close', function(code) {
-         done(true);
-         });
+                task.stdout.on('close', function(code) {
+                    done(true);
+                });
+                break;
+            default:
+                grunt.log.ok(this.target + " not implemented.  Fork git@github.com:sharpred/grunt-appc-cli.git and submit a pull request!");
+        }
 
     });
 };
