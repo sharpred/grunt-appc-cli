@@ -15,6 +15,8 @@ module.exports = function(grunt) {
             subcommand = this.data.subcommand,
             target = this.target;
         switch(command) {
+            case "run":
+            grunt.task.run("run:"+target);
             case "ti":
             grunt.task.run("ti:"+subcommand+":"+target);
             break;
