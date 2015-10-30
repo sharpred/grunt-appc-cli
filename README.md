@@ -51,39 +51,48 @@ A string value that is used to do something else with whatever else.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Ti Build
+In this example, `appc ti build` option is used to run your app in the iOS simulator with liveview enabled.
 
 ```js
 grunt.initConfig({
-  appc_cli: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  'appc_cli': {
+    'options': {},
+    'simulator' : {
+                "command" : "ti",
+                "subcommand" : "build",
+                "options" : {
+                    "log-level" : "info",
+                    "platform" : "ios",
+                    "project-dir" : ".",
+                    "target" : "simulator"
+                },
+                "args" : ['--no-banner', "--no-progress-bars", "--no-prompt" ,"--liveview"]
+            },
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Run
+
+In this example, `appc run` option is used to run your app in the iOS simulator for a specific device also with liveview enabled.
 
 ```js
 grunt.initConfig({
-  appc_cli: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  'appc_cli': {
+    'options': {},
+    'simulator': {
+           "command": "run",
+           "args": ["-p", "ios", "-C", "E1406EC4-2BE2-4DFB-BC7C-38473815E862", "--liveview"]
+            },
   },
 });
 ```
+
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+1.0.0 Initial release 30/10/15

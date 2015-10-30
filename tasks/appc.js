@@ -10,7 +10,7 @@
 
 module.exports = function(grunt) {
 
-    grunt.registerMultiTask('appc', "appc CLI tasks", function() {
+    grunt.registerMultiTask('appc-cli', "appc CLI tasks", function() {
         var command = this.data.command,
             subcommand = this.data.subcommand,
             target = this.target;

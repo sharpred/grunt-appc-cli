@@ -15,9 +15,10 @@ module.exports = function(grunt) {
     var _ = require("lodash");
     var tiObject = {};
 
-    var appcSettings = grunt.config.get("appc");
+    var appcSettings = grunt.config.get("appc-cli");
 
     grunt.registerTask('run', 'run commands', function(command, job) {
+        // Merge task-specific and/or target-specific options with these defaults.
 
         var options = this.options({}),
             spawn = require('child_process').spawn,
