@@ -17,6 +17,7 @@ module.exports = function(grunt) {
         switch(command) {
             case "run":
             grunt.task.run("run:"+target);
+            break;
             case "ti":
             grunt.task.run("ti:"+subcommand+":"+target);
             break;
@@ -28,5 +29,4 @@ module.exports = function(grunt) {
             break;
         }
     });
-
 };

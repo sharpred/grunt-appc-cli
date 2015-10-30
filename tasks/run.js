@@ -25,10 +25,10 @@ module.exports = function(grunt) {
             task,
             done = this.async(),
             cwd = process.cwd(),
-            params = ['ti', command],
             settings = appcSettings[command],
             params = settings["args"] || [],
             buildArgs = ["run"];
+
 
         params.forEach(function(setting) {
             buildArgs.push(setting);
