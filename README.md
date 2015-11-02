@@ -1,4 +1,5 @@
-[![Build Status]https://travis-ci.org/sharpred/grunt-appc-cli.svg?branch=master]
+[![Build Status](https://travis-ci.org/sharpred/grunt-appc-cli.svg?branch=master)]
+[![bitHound Score](https://www.bithound.io/github/sharpred/grunt-appc-cli/badges/score.svg)](https://www.bithound.io/github/sharpred/grunt-appc-cli)
 # grunt-appc-cli
 > Grunt plugin for Appcelerator Platform CLI tools
 
