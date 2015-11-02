@@ -31,7 +31,7 @@ var
 exports.appc = {
     whoami : function(test) {
         exec('grunt whoami', execOptions, function(error, stdout) {
-            test.equal(stdout.indexOf('organization') !== -1, true, 'not logged in');
+            test.equal(stdout.indexOf('organization') === -1, true, 'not logged in');
             test.done();
         });
     }

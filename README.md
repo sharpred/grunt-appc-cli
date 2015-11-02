@@ -1,5 +1,6 @@
+https://travis-ci.org/#
 # grunt-appc-cli
-
+https://travis-ci.org/sharpred/grunt-appc-cli.svg?branch=master
 > Grunt plugin for Appcelerator Platform CLI tools
 
 ## Getting Started
