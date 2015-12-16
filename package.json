@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.11.3",
-    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-clean": ">=0.7.0",
     "grunt-contrib-nodeunit": "~0.4.1",
     "grunt": "~0.4.5",
     "grunt-env": "~0.4.4"
@@ -41,8 +41,5 @@
     "titanium",
     "alloy",
     "appcelerator"
-  ],
-  "dependencies": {
-    "appcelerator": "~4.2.1"
-  }
+  ]
 }
