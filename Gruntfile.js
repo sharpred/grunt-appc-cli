@@ -12,28 +12,28 @@ module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
-        jshint : {
-            all : ['Gruntfile.js', 'tasks/*.js', '<%= nodeunit.tests %>'],
-            options : {
-                jshintrc : '.jshintrc'
+        jshint: {
+            all: ['Gruntfile.js', 'tasks/*.js', '<%= nodeunit.tests %>'],
+            options: {
+                jshintrc: '.jshintrc'
             }
         },
 
         // Before generating any new files, remove any previously-created files.
-        clean : {
-            tests : ['tmp']
+        clean: {
+            tests: ['tmp']
         },
 
         // Configuration to be run (and then tested).
-        "appc-cli" : {
-            'whoami' : {
-                "command" : "whoami"
+        'appc-cli': {
+            'whoami': {
+                'command': 'whoami'
             }
         },
 
         // Unit tests.
-        nodeunit : {
-            tests : ['test/*_test.js']
+        nodeunit: {
+            tests: ['test/*_test.js']
         }
 
     });
