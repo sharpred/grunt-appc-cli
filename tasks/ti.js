@@ -44,11 +44,15 @@ module.exports = function(grunt) {
                 });
 
                 task.stdout.on('data', function(data) {
+                    if(data.indexOf("Project built successfully") !== -1) {
+                        done(true);
+                    }
                     grunt.log.ok(data);
                 });
 
                 task.stderr.on('error', function(data) {
-                    grunt.log.error(data);
+                    grunt.log.error("ti.js " + data);
+                    done(false);
                 });
 
                 task.stdout.on('close', function(code) {
