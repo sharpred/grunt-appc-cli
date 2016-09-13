@@ -39,11 +39,15 @@ module.exports = function(grunt) {
         });
 
         task.stdout.on('data', function(data) {
-            grunt.log.ok(data);
+            grunt.log.ok("data: " + data);
+            if(data.indexOf("Project built successfully") !== -1) {
+                done(true);
+            }
         });
 
         task.stderr.on('error', function(data) {
-            grunt.log.error(data);
+            grunt.log.error("run.js " + data);
+            done(false);
         });
 
         task.stdout.on('close', function(code) {
