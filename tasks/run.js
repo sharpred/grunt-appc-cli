@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         });
 
         task.stderr.on('error', function(data) {
-            grunt.log.error("run.js " data);
+            grunt.log.error("run.js " + data);
             done(false);
         });
 
