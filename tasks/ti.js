@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 });
 
                 task.stderr.on('error', function(data) {
-                    grunt.log.error(data);
+                    grunt.log.error("ti.js " + data);
                     done(false);
                 });
 
