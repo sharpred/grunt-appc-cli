@@ -1,7 +1,7 @@
 {
   "name": "grunt-appc-cli",
   "description": "Grunt plugin for Appcelerator Platform CLI tools",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "homepage": "https://github.com/paulryanwork/grunt-appc-cli",
   "author": {
     "name": "Paul Ryan",
