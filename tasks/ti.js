@@ -28,41 +28,36 @@ module.exports = function(grunt) {
             params = ['ti', command],
             settings = appcSettings[job];
 
-        switch(command) {
-            case 'build':
-                var buildArgs = [];
-                _.each(settings.options, function(obj, val) {
-                    params.push("--"+val + "=" + obj);
-                });
-                _.extend(buildArgs, params);
-                settings.args.forEach(function(item){
-                    buildArgs.push(item);
-                });
-
-                task = spawn('appc', buildArgs, {
-                    'cwd' : cwd
-                });
-
-                task.stdout.on('data', function(data) {
-                    if(data.indexOf("Project built successfully") !== -1) {
-                        done(true);
-                    }
-                    grunt.log.ok(data);
-                });
-
-                task.stderr.on('error', function(data) {
-                    grunt.log.error("ti.js " + data);
-                    done(false);
-                });
-
-                task.stdout.on('close', function(code) {
-                    done(true);
-                });
-
-                break;
-            default:
-                grunt.log.ok(this.target + " not implemented.  Fork git@github.com:sharpred/grunt-appc-cli.git and submit a pull request!");
+        var buildArgs = [];
+        _.each(settings.options, function(obj, val) {
+            params.push("--"+val + "=" + obj);
+        });
+        _.extend(buildArgs, params);
+        if (settings.args) {
+            settings.args.forEach(function(item){
+                buildArgs.push(item);
+            });
         }
+
+        task = spawn('appc', buildArgs, {
+            'cwd' : cwd
+        });
+
+        task.stdout.on('data', function(data) {
+            if(data.indexOf("Project built successfully") !== -1) {
+                done(true);
+            }
+            grunt.log.ok(data);
+        });
+
+        task.stderr.on('error', function(data) {
+            grunt.log.error("ti.js " + data);
+            done(false);
+        });
+
+        task.stdout.on('close', function(code) {
+            done(true);
+        });
 
     });
 };

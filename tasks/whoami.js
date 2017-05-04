@@ -36,6 +36,5 @@ module.exports = function(grunt) {
         task.stdout.on('close', function(code) {
             done(true);
         });
-
     });
 };
