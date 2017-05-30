@@ -50,8 +50,29 @@ module.exports = function(grunt) {
             grunt.log.ok(data);
         });
 
+        task.stderr.on('data', function(data) {
+            var status = data.toString().substr(0, data.toString().indexOf(" "));
+            switch (status) {
+                case "[DEBUG]":
+                    grunt.log.debug(data);
+                    break;
+                case "[INFO]":
+                    grunt.log.ok(data);
+                    break;
+                case "[WARN]":
+                    grunt.log.error(data);
+                    break;
+                case "[ERROR]":
+                    grunt.log.error(data);
+                    done(false);
+                    break;
+                default:
+                    grunt.log.ok(data);
+            }
+        });
+
         task.stderr.on('error', function(data) {
-            grunt.log.error("ti.js " + data);
+            grunt.log.error(data);
             done(false);
         });
 
