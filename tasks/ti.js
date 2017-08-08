@@ -14,7 +14,6 @@ module.exports = function (grunt) {
     // creation: http://gruntjs.com/creating-tasks
     var _ = require("lodash");
     var tiObject = {};
-    var cmdfunction = require("./lib/cmdfunction");
 
     var appcSettings = grunt.config.get("appc-cli");
 
