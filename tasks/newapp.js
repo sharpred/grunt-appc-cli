@@ -18,7 +18,7 @@ module.exports = function (grunt) {
 
     var appcSettings = grunt.config.get("appc-cli");
 
-    grunt.registerTask('ti', 'titanium commands', function (command, job) {
+    grunt.registerTask('newapp', 'create new appc app', function (command, job) {
         // Merge task-specific and/or target-specific options with these defaults.
 
         var options = this.options({}),
