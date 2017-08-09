@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             task,
             done = this.async(),
             cwd = process.cwd(),
-            params = ['ti', command],
+            params = ['new', command],
             settings = appcSettings[job];
 
         var buildArgs = [];
